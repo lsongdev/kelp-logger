@@ -1,0 +1,26 @@
+{
+  "name": "kelp-logger",
+  "version": "1.0.0",
+  "description": "kelp logger",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/song940/kelp-logger.git"
+  },
+  "keywords": [
+    "kelp",
+    "logger"
+  ],
+  "author": "lsong",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/song940/kelp-logger/issues"
+  },
+  "homepage": "https://github.com/song940/kelp-logger#readme",
+  "devDependencies": {
+    "kelp": "^1.0.0"
+  }
+}
