@@ -25,29 +25,33 @@ module.exports = function(req, res, next){
   var end    = res.end;
   var start  = new Date;
   var respod = false;
+  function commit(){
+    var cc = STATUS_CODES[ res.statusCode / 100 | 0 ];
+    console.log(
+      err && !respod ? '-x' : '->'    ,
+      color(req.method                , 35),
+      color(req.url                   , 90),
+      color(res.statusCode            , cc),
+      color((new Date - start) + "ms" , 90)
+    );
+  };
   /**
    * [function description]
    * @return {[type]} [description]
    */
   res.end = function(){
-    end.apply(res, arguments);
     respod = true;
+    end.apply(res, arguments);
+    commit();
   };
   try{
     next();
   }catch(e){
     err = e;
-  }
-  if(!respod && err) res.statusCode = 500;
-  var cc = STATUS_CODES[ res.statusCode / 100 | 0 ];
-  console.log(
-    err && !respod ? '-x' : '->'  ,
-    color(req.method              , 35),
-    color(req.url                 , 90),
-    color(res.statusCode          , cc),
-    color((new Date - start)+ "ms", 90)
-  );
-  if(err){
+    if(!respod){
+      res.statusCode = 500;
+      commit();
+    }
     throw err;
   }
 };

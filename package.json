@@ -1,6 +1,6 @@
 {
   "name": "kelp-logger",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "kelp logger",
   "main": "index.js",
   "scripts": {
@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/song940/kelp-logger#readme",
   "devDependencies": {
-    "kelp": "^1.0.0"
+    "kelp": "*"
   }
 }
